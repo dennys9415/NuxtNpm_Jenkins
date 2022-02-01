@@ -1,4 +1,4 @@
 <template>
-  <h1>Dev Branch</h1>
+  <h1>Staging Branch</h1>
 </template>
 
