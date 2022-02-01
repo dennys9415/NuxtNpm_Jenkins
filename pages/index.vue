@@ -1,9 +1,4 @@
 <template>
-  <Tutorial/>
+  <h1>Staging Branch</h1>
 </template>
 
-<script>
-export default {
-  name: 'IndexPage'
-}
-</script>
