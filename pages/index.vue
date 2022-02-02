@@ -1,4 +1,4 @@
 <template>
-  <h1>Staging Branch Test1</h1>
+  <h1>Staging Branch Test2</h1>
 </template>
 
