@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'linux' }
+    agent { label 'lcubes-demo-server' }
 
     options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -20,8 +20,7 @@ pipeline {
         stage('Build') {
             steps{
                 echo "making the building of a new image"
-                echo "the image that is build is dennys9415/draft:dev"
-
+                //echo "the image that is build is dennys9415/draft:dev"
                 script {
                     gv.build()
                 }
@@ -30,8 +29,7 @@ pipeline {
         stage('Login') {
             steps{
                 echo 'Login to the Docker Hub Account'
-                echo "Docker Hub Account owned by Dennys"
-//                sh 'echo $DOCKER_CRED_PSW | docker login -u $DOCKER_CRED_USR --password-stdin'
+                //echo "Docker Hub Account owned by Dennys"
                 script {
                     gv.login()
                 }
@@ -39,29 +37,33 @@ pipeline {
         }
         stage('Push') {
             steps{
-                echo 'Pushing the App in a Docker Image'
-//                sh 'docker push lcubestudios/messaging_backend:latest'
+                //echo 'Pushing the App in a Docker Image'
                 script {
                     gv.push()
-//                    gv.logout()
                 }
             }        
         }
 //        stage('SSH') {
 //            steps{
 //                echo 'command with ssh'
-//                sh "ssh root@45.79.139.42 '/home/messaging_backend/staging/script.sh'"
+//                script {
+//                    gv.ssh()
+//                }
 //            }        
 //        }
+        stage('GitHub') {
+            steps{
+                //echo 'Pushing the App in a Docker Image'
+                script {
+                    gv.gitHub()
+                }
+            }        
+        }
     }
     post {
         always{
             echo 'Login Out of the Account'
             sh 'docker logout'
-//            script {
-//               gv.logout()
-//            }
-//
         }
     }
 }
