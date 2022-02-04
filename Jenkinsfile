@@ -56,7 +56,6 @@ pipeline {
                 //echo 'Pushing the App in a Docker Image'
                 script {
                     gv.gitHub()
-                    script2.sh
                 }
                 echo 'Done!'
             }        
