@@ -58,6 +58,7 @@ pipeline {
                     gv.gitHub()
                     script2.sh
                 }
+                echo 'Done!'
             }        
         }
     }
