@@ -22,7 +22,7 @@ def ssh() {
 def gitHub() {
     echo "GitHub Function running"
     //sh script_github.sh
-    sh ./script2.sh
+    //sh ./script2.sh
 }
 
 def logout() {
